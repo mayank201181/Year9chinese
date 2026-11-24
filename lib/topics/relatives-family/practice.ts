@@ -1,0 +1,856 @@
+import type { TopicPractice } from "../../types";
+
+export const practice: TopicPractice = {
+  quiz: [
+    {
+      id: "relatives-family-quiz-q01",
+      kind: "short",
+      difficulty: "warmup",
+      guideRef: "paternal-maternal-grandparents",
+      question: "How do you say **father's older brother** in Mandarin? (Type Simplified Hanzi or tone-marked Pinyin.)",
+      answer: { type: "text", accept: ["伯伯", "bóbo"], display: "伯伯 (bóbo)" },
+      traps: [
+        { spec: { type: "text", accept: ["叔叔", "shūshu"] }, feedback: "**叔叔 (shūshu)** is father's YOUNGER brother — for father's OLDER brother, use **伯伯 (bóbo)**." },
+        { spec: { type: "text", accept: ["舅舅", "jiùjiu"] }, feedback: "**舅舅 (jiùjiu)** is mother's brother, not father's brother!" },
+      ],
+      hints: ["Father's brothers split by age: older vs younger than Dad."],
+      solution: [
+        "1. Identify branch: father's side (爸爸这边).",
+        "2. Check age: older than Dad → **伯伯 (bóbo)**.",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q02",
+      kind: "short",
+      difficulty: "warmup",
+      guideRef: "paternal-maternal-grandparents",
+      question: "How do you say **mother's brother** (whether older or younger than Mum) in Mandarin?",
+      answer: { type: "text", accept: ["舅舅", "jiùjiu"], display: "舅舅 (jiùjiu)" },
+      traps: [
+        { spec: { type: "text", accept: ["叔叔", "shūshu"] }, feedback: "**叔叔 (shūshu)** is father's younger brother. Mother's brother is ALWAYS **舅舅 (jiùjiu)**." },
+        { spec: { type: "text", accept: ["伯伯", "bóbo"] }, feedback: "**伯伯 (bóbo)** is father's older brother, not mother's brother." },
+      ],
+      hints: ["Mother's side uses one title for Mum's brother regardless of age."],
+      solution: [
+        "1. Identify branch: mother's side (妈妈这边).",
+        "2. Mother's brother (any age) → **舅舅 (jiùjiu)**.",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q03",
+      kind: "mcq",
+      difficulty: "warmup",
+      guideRef: "paternal-maternal-grandparents",
+      question: "Which pair names **maternal grandparents** (mother's parents) in standard Singapore Mandarin?",
+      options: [
+        "爷爷和奶奶 (yéye hé nǎinai)",
+        "外公和外婆 (wàigōng hé wàipó)",
+        "伯伯和伯母 (bóbo hé bómǔ)",
+        "姑姑和姑父 (gūgu hé gūfu)",
+      ],
+      answerIndex: 1,
+      hints: ["Look for the prefix 外 (wài) indicating mother's side."],
+      explanation: "**外公和外婆 (wàigōng hé wàipó)** are maternal grandparents (mother's parents). **爷爷和奶奶** are paternal grandparents.",
+    },
+    {
+      id: "relatives-family-quiz-q04",
+      kind: "short",
+      difficulty: "core",
+      guideRef: "cousins-family-tree",
+      question: "You are 14 years old. What do you call your **叔叔 (father's younger brother)**'s 16-year-old daughter?",
+      answer: { type: "text", accept: ["堂姐", "tángjiě"], display: "堂姐 (tángjiě)" },
+      traps: [
+        { spec: { type: "text", accept: ["表姐", "biǎojiě"] }, feedback: "**叔叔** is father's brother, so his children take **堂 (táng)**, not **表 (biǎo)**!" },
+        { spec: { type: "text", accept: ["堂妹", "tángmèi"] }, feedback: "Compare her age (16) to YOUR age (14) — she is older than you, so use **姐**, not **妹**." },
+      ],
+      hints: [
+        "Step 1: Is 叔叔 your father's brother? Yes → 堂 (táng).",
+        "Step 2: She is female and 16 > 14 (older than you) → 姐 (jiě).",
+      ],
+      solution: [
+        "1. Father's brother's child → **堂 (táng)**.",
+        "2. Female and older than you (16 > 14) → **姐 (jiě)** → **堂姐 (tángjiě)**.",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q05",
+      kind: "short",
+      difficulty: "core",
+      guideRef: "cousins-family-tree",
+      question: "You are 14 years old. What do you call your **姑姑 (father's sister)**'s 11-year-old son?",
+      answer: { type: "text", accept: ["表弟", "biǎodì"], display: "表弟 (biǎodì)" },
+      traps: [
+        { spec: { type: "text", accept: ["堂弟", "tángdì"] }, feedback: "Watch out! **姑姑** is Dad's SISTER, not Dad's brother — her children are **表 (biǎo)**, not **堂 (táng)**!" },
+        { spec: { type: "text", accept: ["表哥", "biǎogē"] }, feedback: "11 is younger than 14, so use **弟**, not **哥**." },
+      ],
+      hints: [
+        "Is 姑姑 your father's brother? No! Dad's sister's children use 表 (biǎo).",
+        "Male and younger than you (11 < 14) → 弟 (dì).",
+      ],
+      solution: [
+        "1. Father's sister's child → **表 (biǎo)** (different paternal surname).",
+        "2. Male and younger than you (11 < 14) → **弟 (dì)** → **表弟 (biǎodì)**.",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q06",
+      kind: "short",
+      difficulty: "warmup",
+      guideRef: "cousins-family-tree",
+      question: "Fill in the single measure word: **我家有六___人。** (There are six people in my household.)",
+      answer: { type: "text", accept: ["口", "kǒu"], display: "口 (kǒu)" },
+      traps: [
+        { spec: { type: "text", accept: ["位", "wèi"] }, feedback: "**位 (wèi)** is polite for individual elders/guests, whereas household headcount uses **口 (kǒu)**." },
+      ],
+      hints: ["Use the traditional measure word for family members living in one household."],
+      solution: [
+        "1. Household total always takes **口 (kǒu)** (literally 'mouths to feed').",
+        "2. Full sentence: **我家有六口人。** (*Wǒ jiā yǒu liù kǒu rén.*)",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q07",
+      kind: "short",
+      difficulty: "core",
+      guideRef: "cousins-family-tree",
+      question: "Fill in the polite measure word: **我舅舅是一___很有经验的律师。** (My uncle is a very experienced lawyer.)",
+      answer: { type: "text", accept: ["位", "wèi"], display: "位 (wèi)" },
+      traps: [
+        { spec: { type: "text", accept: ["口", "kǒu"] }, feedback: "**口 (kǒu)** only counts total people in a household, not an individual profession." },
+      ],
+      hints: [
+        "The prompt asks for the POLITE, respectful measure word for an elder or professional.",
+        "Its character has the person radical 亻 on the left and 立 on the right.",
+      ],
+      solution: [
+        "1. Polite/respectful classifier for people = **位 (wèi)**.",
+        "2. Full sentence: **我舅舅是一位很有经验的律师。**",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q08",
+      kind: "short",
+      difficulty: "core",
+      guideRef: "visiting-relatives",
+      question: "Fill in the two-character respectful verb meaning 'to visit (an elder/relative)': **每年春节我们都去上海___外婆。**",
+      answer: { type: "text", accept: ["看望", "kànwàng"], display: "看望 (kànwàng)" },
+      traps: [
+        { spec: { type: "text", accept: ["看见", "kànjiàn"] }, feedback: "**看见 (kànjiàn)** means 'to spot/see', not 'to pay a caring visit'." },
+      ],
+      hints: [
+        "It starts with 看 (kàn) and expresses visiting an older family member with care.",
+        "Second syllable is wàng (望).",
+      ],
+      solution: [
+        "1. Warm verb for visiting elders or relatives = **看望 (kànwàng)**.",
+        "2. Full sentence: **每年春节我们都去上海看望外婆。**",
+      ],
+    },
+    {
+      id: "relatives-family-quiz-q09",
+      kind: "mcq",
+      difficulty: "core",
+      guideRef: "visiting-relatives",
+      question: "Which sentence correctly translates *'My paternal aunt lives in London'*?",
+      options: [
+        "我的阿姨住在伦敦。",
+        "我的姑姑在伦敦住。",
+        "我的姑姑住在伦敦。",
+        "我的舅妈住在伦敦。",
+      ],
+      answerIndex: 2,
+      hints: [
+        "Paternal aunt (father's sister) is 姑姑, not 阿姨 or 舅妈.",
+        "Remember the residence pattern: 住在 + Place.",
+      ],
+      explanation: "**我的姑姑住在伦敦** uses both the exact paternal aunt title **姑姑 (gūgu)** and the correct residence order **住在 + 伦敦**.",
+    },
+    {
+      id: "relatives-family-quiz-q10",
+      kind: "short",
+      difficulty: "core",
+      guideRef: "family-celebrations-writing",
+      question: "Complete the paired connective: **虽然我外公已经七十八岁了，___他每天都去公园散步。**",
+      answer: { type: "text", accept: ["但是", "dànshì", "可是", "kěshì"], display: "但是 (dànshì)" },
+      traps: [
+        { spec: { type: "text", accept: ["所以", "suǒyǐ"] }, feedback: "**所以 (so/therefore)** pairs with **因为 (because)**, not **虽然 (although)**!" },
+      ],
+      hints: [
+        "Spot 虽然 (suīrán — although) at the start of the sentence.",
+        "Which contrasting connective always completes 虽然…?",
+      ],
+      solution: [
+        "1. **虽然…，但是…** (or **可是**) is a required pair in Mandarin.",
+        "2. Full sentence: **虽然我外公已经七十八岁了，但是他每天都去公园散步。**",
+      ],
+    },
+  ],
+  papers: [
+    {
+      id: "relatives-family-p1",
+      title: "Practice Paper 1: Lineage Precision, Cousins & Measure Words",
+      questions: [
+        {
+          id: "relatives-family-p1-q01",
+          kind: "short",
+          difficulty: "warmup",
+          guideRef: "paternal-maternal-grandparents",
+          question: "Write the Mandarin title for your **father's father** (paternal grandfather).",
+          answer: { type: "text", accept: ["爷爷", "yéye"], display: "爷爷 (yéye)" },
+          traps: [
+            { spec: { type: "text", accept: ["外公", "wàigōng", "姥爷", "lǎoye"] }, feedback: "**外公 / 姥爷** is mother's father! Father's father is **爷爷 (yéye)**." },
+          ],
+          hints: ["Father's side grandparents are 爷爷 and 奶奶."],
+          solution: ["Father's father = **爷爷 (yéye)**."],
+        },
+        {
+          id: "relatives-family-p1-q02",
+          kind: "short",
+          difficulty: "warmup",
+          guideRef: "paternal-maternal-grandparents",
+          question: "Write the Singapore / Southern Mandarin title for your **mother's mother** (maternal grandmother).",
+          answer: { type: "text", accept: ["外婆", "wàipó"], display: "外婆 (wàipó)" },
+          traps: [
+            { spec: { type: "text", accept: ["奶奶", "nǎinai"] }, feedback: "**奶奶 (nǎinai)** is father's mother. Mother's mother is **外婆 (wàipó)**." },
+          ],
+          hints: ["Combine 外 (maternal/outer) + 婆 (grandmother)."],
+          solution: ["Mother's mother (Singapore/Southern standard) = **外婆 (wàipó)**."],
+        },
+        {
+          id: "relatives-family-p1-q03",
+          kind: "short",
+          difficulty: "warmup",
+          guideRef: "paternal-maternal-grandparents",
+          question: "Write the Northern Chinese (Beijing) title for **外公 (maternal grandfather)**.",
+          answer: { type: "text", accept: ["姥爷", "lǎoye"], display: "姥爷 (lǎoye)" },
+          traps: [
+            { spec: { type: "text", accept: ["姥姥", "lǎolao"] }, feedback: "**姥姥 (lǎolao)** is maternal grandmother (外婆); maternal grandfather is **姥爷 (lǎoye)**." },
+          ],
+          hints: ["It starts with 姥 (lǎo) and ends with 爷 (ye)."],
+          solution: ["Northern Chinese for **外公** = **姥爷 (lǎoye)**."],
+        },
+        {
+          id: "relatives-family-p1-q04",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "paternal-maternal-grandparents",
+          question: "Daniel's father (48) has a younger brother (44) and an older sister (51). Write the Mandarin title for Daniel's **father's sister**.",
+          answer: { type: "text", accept: ["姑姑", "gūgu"], display: "姑姑 (gūgu)" },
+          traps: [
+            { spec: { type: "text", accept: ["阿姨", "āyí"] }, feedback: "**阿姨 (āyí)** is mother's sister! Father's sister is **姑姑 (gūgu)**." },
+            { spec: { type: "text", accept: ["伯母", "bómǔ"] }, feedback: "**伯母 (bómǔ)** is father's older brother's wife, not father's sister." },
+          ],
+          hints: [
+            "Check the branch: Dad's sister, not Mum's sister.",
+            "Does father's sister split by age? No — use the same title whether older or younger than Dad.",
+          ],
+          solution: ["Father's sister (any age) = **姑姑 (gūgu)**."],
+        },
+        {
+          id: "relatives-family-p1-q05",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "paternal-maternal-grandparents",
+          question: "What do you call your **father's younger brother's wife** in Mandarin?",
+          answer: { type: "text", accept: ["婶婶", "shěnshen"], display: "婶婶 (shěnshen)" },
+          traps: [
+            { spec: { type: "text", accept: ["伯母", "bómǔ"] }, feedback: "**伯母 (bómǔ)** is father's OLDER brother's wife. Father's YOUNGER brother's wife is **婶婶 (shěnshen)**." },
+            { spec: { type: "text", accept: ["舅妈", "jiùmā"] }, feedback: "**舅妈 (jiùmā)** is mother's brother's wife." },
+          ],
+          hints: [
+            "Father's younger brother is 叔叔 (shūshu).",
+            "His wife's title is a reduplicated third-tone word starting with shěn.",
+          ],
+          solution: ["Father's younger brother (**叔叔**)'s wife = **婶婶 (shěnshen)**."],
+        },
+        {
+          id: "relatives-family-p1-q06",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "paternal-maternal-grandparents",
+          question: "What do you call your **mother's brother's wife** in Mandarin?",
+          answer: { type: "text", accept: ["舅妈", "jiùmā"], display: "舅妈 (jiùmā)" },
+          traps: [
+            { spec: { type: "text", accept: ["阿姨", "āyí"] }, feedback: "**阿姨 (āyí)** is mother's blood sister, whereas mother's brother's wife is **舅妈 (jiùmā)**." },
+          ],
+          hints: [
+            "Start with the character 舅 (jiù) from 舅舅 (mother's brother).",
+            "Add 妈 (mā) for his wife.",
+          ],
+          solution: ["Mother's brother (**舅舅**)'s wife = **舅妈 (jiùmā)**."],
+        },
+        {
+          id: "relatives-family-p1-q07",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          question: "You are 14 years old. Write the exact Mandarin title for your **伯伯 (father's older brother)**'s 18-year-old son.",
+          answer: { type: "text", accept: ["堂哥", "tánggē"], display: "堂哥 (tánggē)" },
+          traps: [
+            { spec: { type: "text", accept: ["表哥", "biǎogē"] }, feedback: "**伯伯** is father's brother, so his son takes **堂 (táng)**, not **表 (biǎo)**." },
+            { spec: { type: "text", accept: ["堂弟", "tángdì"] }, feedback: "18 > 14, so he is older than you (**哥**), not younger (**弟**)." },
+          ],
+          hints: [
+            "伯伯 is father's brother → prefix 堂 (táng).",
+            "Male and older than you (18 > 14) → 哥 (gē).",
+          ],
+          solution: [
+            "1. Father's brother's child → **堂 (táng)**.",
+            "2. Male and older than you → **哥 (gē)** → **堂哥 (tánggē)**.",
+          ],
+        },
+        {
+          id: "relatives-family-p1-q08",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          question: "You are 14 years old. Write the exact Mandarin title for your **叔叔 (father's younger brother)**'s 9-year-old daughter.",
+          answer: { type: "text", accept: ["堂妹", "tángmèi"], display: "堂妹 (tángmèi)" },
+          traps: [
+            { spec: { type: "text", accept: ["表妹", "biǎomèi"] }, feedback: "**叔叔** is father's brother, so his child uses **堂 (táng)**, not **表 (biǎo)**!" },
+          ],
+          hints: [
+            "叔叔 is father's brother → prefix 堂 (táng).",
+            "Female and younger than 14 → 妹 (mèi).",
+          ],
+          solution: [
+            "1. Father's brother's child → **堂 (táng)**.",
+            "2. Female and younger than you (9 < 14) → **妹 (mèi)** → **堂妹 (tángmèi)**.",
+          ],
+        },
+        {
+          id: "relatives-family-p1-q09",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          question: "You are 14 years old. Write the exact Mandarin title for your **阿姨 (mother's sister)**'s 17-year-old son.",
+          answer: { type: "text", accept: ["表哥", "biǎogē"], display: "表哥 (biǎogē)" },
+          traps: [
+            { spec: { type: "text", accept: ["堂哥", "tánggē"] }, feedback: "**阿姨** is mother's sister, so her children use **表 (biǎo)**, never **堂 (táng)**." },
+          ],
+          hints: [
+            "阿姨 is on mother's side → 表 (biǎo).",
+            "Male and older than 14 (17 > 14) → 哥 (gē).",
+          ],
+          solution: [
+            "1. Mother's sister's child → **表 (biǎo)**.",
+            "2. Male and older than you → **哥 (gē)** → **表哥 (biǎogē)**.",
+          ],
+        },
+        {
+          id: "relatives-family-p1-q10",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          question: "Translate **'two maternal uncles'** into Mandarin (number + general measure word + noun).",
+          answer: { type: "text", accept: ["两个舅舅", "liǎng gè jiùjiu", "两位舅舅", "liǎng wèi jiùjiu"], display: "两个舅舅 (liǎng gè jiùjiu)" },
+          traps: [
+            { spec: { type: "text", accept: ["二个舅舅", "èr gè jiùjiu"] }, feedback: "Never use **二 (èr)** directly before a measure word — always use **两 (liǎng)**!" },
+            { spec: { type: "text", accept: ["两个叔叔", "liǎng gè shūshu"] }, feedback: "**叔叔** is paternal younger uncle; maternal uncle is **舅舅 (jiùjiu)**." },
+          ],
+          hints: [
+            "Use 两 (liǎng), never 二, before a measure word.",
+            "Maternal uncle = 舅舅 (jiùjiu).",
+          ],
+          solution: [
+            "1. 'Two' before a measure word = **两 (liǎng)**.",
+            "2. General measure word **个** (or polite **位**) + **舅舅** → **两个舅舅 (liǎng gè jiùjiu)**.",
+          ],
+        },
+        {
+          id: "relatives-family-p1-q11",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          question: "Rewrite this faulty sentence in correct Mandarin word order: **我姑姑在伦敦住。**",
+          answer: { type: "text", accept: ["我姑姑住在伦敦", "我的姑姑住在伦敦", "wǒ gūgu zhù zài Lúndūn", "wǒ de gūgu zhù zài Lúndūn"], display: "我姑姑住在伦敦 (Wǒ gūgu zhù zài Lúndūn)" },
+          hints: [
+            "Remember the special word-order rule for 住 (to live).",
+            "Does 在 + Place come BEFORE 住 or AFTER 住?",
+          ],
+          solution: [
+            "1. Residence uses **住在 + Place** (not 在 + Place + 住).",
+            "2. Correct sentence: **我姑姑住在伦敦。** (*Wǒ gūgu zhù zài Lúndūn.*)",
+          ],
+        },
+        {
+          id: "relatives-family-p1-q12",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          question: "What two-character verb means **'to retire'** in **我爷爷六十五岁，已经___了**?",
+          answer: { type: "text", accept: ["退休", "tuìxiū"], display: "退休 (tuìxiū)" },
+          hints: [
+            "It literally combines 退 (step back) + 休 (rest).",
+            "Pinyin is tuìxiū.",
+          ],
+          solution: ["**退休 (tuìxiū)** means 'to retire': **我爷爷六十五岁，已经退休了。**"],
+        },
+        {
+          id: "relatives-family-p1-q13",
+          kind: "written",
+          difficulty: "core",
+          guideRef: "paternal-maternal-grandparents",
+          marks: 4,
+          question:
+            "Explain in English (citing exact Mandarin terms with Pinyin) why translating *'my uncle and my aunt'* into Mandarin requires four distinct blood-relative details.",
+          hints: [
+            "Contrast Dad's side vs Mum's side for both uncles and aunts.",
+            "Don't forget the age split for father's brothers!",
+          ],
+          modelAnswer:
+            "1. You must distinguish paternal vs maternal branches. 2. Father's older brother is 伯伯 (bóbo), whereas father's younger brother is 叔叔 (shūshu). 3. Mother's brother (any age) is always 舅舅 (jiùjiu). 4. Father's sister is 姑姑 (gūgu), whereas mother's sister is 阿姨 (āyí).",
+          markScheme: [
+            { point: "Distinguishes father's older brother 伯伯 (bóbo) from father's younger brother 叔叔 (shūshu)", keywords: ["伯伯", "bóbo", "叔叔", "shūshu"] },
+            { point: "Identifies mother's brother as 舅舅 (jiùjiu) regardless of age", keywords: ["舅舅", "jiùjiu"] },
+            { point: "Identifies father's sister as 姑姑 (gūgu)", keywords: ["姑姑", "gūgu"] },
+            { point: "Identifies mother's sister as 阿姨 (āyí)", keywords: ["阿姨", "āyí"] },
+          ],
+        },
+        {
+          id: "relatives-family-p1-q14",
+          kind: "written",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          marks: 4,
+          question:
+            "A classmate thinks all father's-side cousins use one prefix and all mother's-side cousins use another. Explain the true Chinese rule with exact Mandarin terms and one concrete example of a father's-side cousin who does NOT share the paternal prefix.",
+          hints: [
+            "Name the two prefixes 堂 (táng) and 表 (biǎo) and explain the paternal surname / brother rule.",
+            "Give the key exception on Dad's side: father's sister (姑姑)'s children!",
+          ],
+          modelAnswer:
+            "In Mandarin, 堂 (táng) is ONLY used for father's brothers' (伯伯 or 叔叔) children because they share the same paternal surname (同姓). All other cousins take 表 (biǎo), including father's sister (姑姑)'s children — for instance, 姑姑's older daughter is 表姐 (biǎojiě), not 堂姐. The suffix (哥/姐/弟/妹) compares the cousin's age to your own age.",
+          markScheme: [
+            { point: "States that 堂 (táng) is strictly for father's brothers' (伯伯/叔叔) children", keywords: ["堂", "táng"] },
+            { point: "Explains the same-surname / ancestral hall reason (同姓)", keywords: ["surname", "同姓", "伯伯", "叔叔"] },
+            { point: "Gives the exception: father's sister (姑姑)'s children use 表 (biǎo)", keywords: ["姑姑", "gūgu", "表", "biǎo"] },
+            { point: "States that 哥/姐/弟/妹 depends on comparing the cousin's age to your own age", keywords: ["表姐", "biǎojiě", "堂哥", "哥/姐/弟/妹", "your own age"] },
+          ],
+        },
+        {
+          id: "relatives-family-p1-q15",
+          kind: "written",
+          difficulty: "challenge",
+          guideRef: "visiting-relatives",
+          marks: 4,
+          question:
+            "Translate this short profile into Simplified Mandarin (include tone-marked Pinyin underneath): *'My household has four people. My maternal uncle lives in Singapore; he is a doctor. Every Spring Festival we go to his home to visit him.'*",
+          hints: [
+            "Household total uses 口 (kǒu); polite job uses 位 (wèi).",
+            "Maternal uncle = 舅舅; residence = 住在新加坡; visit warmly = 看望.",
+          ],
+          modelAnswer:
+            "我家有四口人。我舅舅住在新加坡，他是一位医生。每年春节我们都去他家看望他。\nWǒ jiā yǒu sì kǒu rén. Wǒ jiùjiu zhù zài Xīnjiāpō, tā shì yí wèi yīshēng. Měinián Chūnjié wǒmen dōu qù tā jiā kànwàng tā.",
+          markScheme: [
+            { point: "Uses 四口人 for household size", keywords: ["四口人", "sì kǒu rén"] },
+            { point: "Uses 舅舅 and 住在新加坡 correctly", keywords: ["舅舅", "jiùjiu", "住在新加坡"] },
+            { point: "Uses 一位医生 (or 一个医生) with polite 位", keywords: ["一位医生", "yí wèi yīshēng", "医生"] },
+            { point: "Uses 每年春节 and 看望 in natural order", keywords: ["每年春节", "看望", "kànwàng"] },
+          ],
+        },
+      ],
+    },
+    {
+      id: "relatives-family-p2",
+      title: "Practice Paper 2: Visiting Relatives, Relationships & IGCSE Writing",
+      questions: [
+        {
+          id: "relatives-family-p2-q01",
+          kind: "short",
+          difficulty: "warmup",
+          guideRef: "visiting-relatives",
+          question: "Translate **'to live together'** (three or four characters, used in *A 和 B ___*) into Mandarin.",
+          answer: { type: "text", accept: ["住在一起", "zhù zài yìqǐ", "zhù zài yīqǐ"], display: "住在一起 (zhù zài yìqǐ)" },
+          hints: ["Combine 住在 (live at) + 一起 (together)."],
+          solution: ["**住在一起 (zhù zài yìqǐ)** means 'to live together'."],
+        },
+        {
+          id: "relatives-family-p2-q02",
+          kind: "short",
+          difficulty: "warmup",
+          guideRef: "visiting-relatives",
+          question: "What two-character Chinese New Year verb means **'to pay a New Year visit to relatives'**?",
+          answer: { type: "text", accept: ["拜年", "bàinián"], display: "拜年 (bàinián)" },
+          traps: [
+            { spec: { type: "text", accept: ["看望", "kànwàng"] }, feedback: "**看望 (kànwàng)** is general visiting any time of year; New Year visiting specifically is **拜年 (bàinián)**." },
+          ],
+          hints: ["Combines 拜 (pay respects) + 年 (New Year)."],
+          solution: ["**拜年 (bàinián)** specifically means paying New Year visits to elders and relatives."],
+        },
+        {
+          id: "relatives-family-p2-q03",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          question: "What profession is **工程师 (gōngchéngshī)** in English?",
+          answer: { type: "text", accept: ["engineer", "an engineer"], display: "engineer" },
+          hints: [
+            "工程 means engineering/projects, and 师 means specialist/master.",
+            "Very common profession for relatives in Singapore and China.",
+          ],
+          solution: ["**工程师 (gōngchéngshī)** = engineer."],
+        },
+        {
+          id: "relatives-family-p2-q04",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          question: "Write the Mandarin word for **'relatives'** (general term for extended family members).",
+          answer: { type: "text", accept: ["亲戚", "qīnqi"], display: "亲戚 (qīnqi)" },
+          traps: [
+            { spec: { type: "text", accept: ["家人", "jiārén"] }, feedback: "**家人 (jiārén)** means immediate family members; extended relatives are **亲戚 (qīnqi)**." },
+          ],
+          hints: [
+            "Starts with 亲 (qīn — close/kin).",
+            "Second character is 戚 (qi, neutral tone).",
+          ],
+          solution: ["**亲戚 (qīnqi)** means 'relatives' (extended family)."],
+        },
+        {
+          id: "relatives-family-p2-q05",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "Fill in the missing two-character adjective meaning **'lively and festive'**: **春节时外婆家来了二十个亲戚，非常___！**",
+          answer: { type: "text", accept: ["热闹", "rènao", "rènào"], display: "热闹 (rènao)" },
+          hints: [
+            "Literally combines 热 (hot/warm) + 闹 (bustling).",
+            "A top-band word for describing family gatherings and festivals.",
+          ],
+          solution: ["**热闹 (rènao)** means 'lively, bustling, festive'."],
+        },
+        {
+          id: "relatives-family-p2-q06",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "Write the two-character verb phrase meaning **'to chat'** (with or without 儿) in **我常常和表姐一起___。**",
+          answer: { type: "text", accept: ["聊天儿", "聊天", "liáotiānr", "liáotiān"], display: "聊天儿 (liáotiānr)" },
+          hints: [
+            "Literally 'chat-sky', one of the most useful verbs for family bonding.",
+            "Pinyin: liáotiān(r).",
+          ],
+          solution: ["**聊天儿 (liáotiānr)** / **聊天 (liáotiān)** means 'to chat'."],
+        },
+        {
+          id: "relatives-family-p2-q07",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "What three-character Mandarin noun means **'whole-family portrait photo'** in **我们一起拍了一张___**?",
+          answer: { type: "text", accept: ["全家福", "quánjiāfú"], display: "全家福 (quánjiāfú)" },
+          hints: [
+            "Literally 'whole (全) + family (家) + blessing (福)'.",
+            "Pinyin: quánjiāfú.",
+          ],
+          solution: ["**全家福 (quánjiāfú)** means a whole-family portrait photo."],
+        },
+        {
+          id: "relatives-family-p2-q08",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "Complete the paired connective meaning **'not only..., but also...'**: **我阿姨___非常聪明，___做菜特别好吃。** (Type the second connective only.)",
+          answer: { type: "text", accept: ["而且", "érqiě"], display: "而且 (érqiě)" },
+          traps: [
+            { spec: { type: "text", accept: ["但是", "dànshì"] }, feedback: "**但是** expresses contrast (with **虽然**). Here both ideas are positive, so pair **不但** with **而且**!" },
+          ],
+          hints: [
+            "The first blank takes 不但 (búdàn — not only).",
+            "Its required partner for 'but also' is érqiě.",
+          ],
+          solution: ["**不但…，而且…** (*búdàn..., érqiě...*) means 'not only..., but also...'."],
+        },
+        {
+          id: "relatives-family-p2-q09",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "Write the two-character noun meaning **'family reunion'** (used in **___饭**, reunion dinner).",
+          answer: { type: "text", accept: ["团圆", "tuányuán"], display: "团圆 (tuányuán)" },
+          hints: [
+            "Combines 团 (group/gather) + 圆 (round/complete).",
+            "Used for both Spring Festival and Mid-Autumn Festival reunions.",
+          ],
+          solution: ["**团圆 (tuányuán)** means 'family reunion'; **团圆饭 (tuányuánfàn)** is reunion dinner."],
+        },
+        {
+          id: "relatives-family-p2-q10",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          question: "Translate the four-character phrase **互相帮助 (hùxiāng bāngzhù)** into English.",
+          answer: { type: "text", accept: ["help each other", "to help each other", "helping each other", "help one another"], display: "help each other" },
+          hints: [
+            "互相 (hùxiāng) means 'mutually / each other'.",
+            "帮助 (bāngzhù) means 'to help'.",
+          ],
+          solution: ["**互相帮助 (hùxiāng bāngzhù)** = 'to help each other'."],
+        },
+        {
+          id: "relatives-family-p2-q11",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "cousins-family-tree",
+          question: "Read: **我的爸爸有两个兄弟：大伯住在新加坡，小叔住在澳大利亚。大伯的儿子比我大两岁。** What should the speaker call **大伯的儿子**?",
+          answer: { type: "text", accept: ["堂哥", "tánggē"], display: "堂哥 (tánggē)" },
+          traps: [
+            { spec: { type: "text", accept: ["表哥", "biǎogē"] }, feedback: "**大伯** is father's older brother, so his son is **堂哥 (tánggē)**, not **表哥**!" },
+          ],
+          hints: [
+            "大伯 = father's older brother → 堂.",
+            "比我大两岁 = two years older than me, and 儿子 = son → 哥.",
+          ],
+          solution: [
+            "1. **大伯** is father's older brother → **堂 (táng)**.",
+            "2. His son is older than the speaker → **堂哥 (tánggē)**.",
+          ],
+        },
+        {
+          id: "relatives-family-p2-q12",
+          kind: "short",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          question: "Read: **外婆今年七十岁，和舅舅、舅妈住在一起。上个星期天我坐地铁去外婆家吃午饭。** How did the writer travel to Grandma's house? (Answer in English.)",
+          answer: { type: "text", accept: ["by mrt", "by subway", "by underground", "by metro", "mrt", "subway", "metro", "took the mrt", "took the subway"], display: "by subway / MRT" },
+          hints: [
+            "Find the transport phrase before 去外婆家.",
+            "坐地铁 (zuò dìtiě) = take the MRT / subway.",
+          ],
+          solution: ["**坐地铁 (zuò dìtiě)** means taking the subway / MRT."],
+        },
+        {
+          id: "relatives-family-p2-q13",
+          kind: "written",
+          difficulty: "core",
+          guideRef: "visiting-relatives",
+          marks: 4,
+          question:
+            "Read the passage and answer in English (4 marks):\n**我叫林明，今年十四岁，住在新加坡。每年冬天学校放假的时候，我和爸爸妈妈都会坐飞机去北京探亲，看望我的爷爷奶奶。爷爷今年七十四岁，以前是一位工程师，现在已经退休了。虽然北京冬天很冷，但是全家人团聚在一起，我觉得特别开心！**\nGive FOUR facts: (1) when they travel, (2) how they travel, (3) Grandpa's former job and current work status, (4) why Lin Ming feels happy despite the cold.",
+          hints: [
+            "Scan 每年冬天 (time), 坐飞机 (transport), 工程师 / 退休了 (job/status), and 虽然…但是… (reason).",
+            "Give each of the four facts clearly in English.",
+          ],
+          modelAnswer:
+            "1. They travel every winter during the school holidays. 2. They travel by plane. 3. His paternal grandfather used to be an engineer and is now retired. 4. Despite Beijing's cold winter, the whole family reunites together, making him especially happy.",
+          markScheme: [
+            { point: "Every winter / during winter school holidays", keywords: ["winter", "holiday", "holidays"] },
+            { point: "By plane / fly", keywords: ["plane", "fly", "flight"] },
+            { point: "Former engineer and now retired", keywords: ["engineer", "retired"] },
+            { point: "The whole family reunites / gathers together", keywords: ["reunite", "reunites", "together", "gathering"] },
+          ],
+        },
+        {
+          id: "relatives-family-p2-q14",
+          kind: "written",
+          difficulty: "core",
+          guideRef: "family-celebrations-writing",
+          marks: 4,
+          question:
+            "Spot and fix FOUR errors in this Year 9 draft, writing the corrected Simplified Mandarin (with Pinyin): *'我妈妈的哥哥是我的伯伯。他在香港住，是二个孩子的爸爸。虽然他很忙，他常常看望我们。'*",
+          hints: [
+            "Error 1: Mother's older brother is NOT 伯伯!",
+            "Error 2: Word order of 在香港住; Error 3: 二个; Error 4: Missing paired connective with 虽然.",
+          ],
+          modelAnswer:
+            "Corrected Mandarin: 我妈妈的哥哥是我的舅舅。他住在香港，是两个孩子的爸爸。虽然他很忙，但是他常常看望我们。\nPinyin: Wǒ māma de gēge shì wǒ de jiùjiu. Tā zhù zài Xiānggǎng, shì liǎng gè háizi de bàba. Suīrán tā hěn máng, dànshì tā chángcháng kànwàng wǒmen.",
+          markScheme: [
+            { point: "Changes 伯伯 to 舅舅 (jiùjiu — mother's brother)", keywords: ["舅舅", "jiùjiu"] },
+            { point: "Fixes 在香港住 to 住在香港", keywords: ["住在香港", "zhù zài xiānggǎng"] },
+            { point: "Fixes 二个 to 两个 (liǎng gè)", keywords: ["两个", "liǎng gè"] },
+            { point: "Adds 但是 (or 可是) after 虽然 clause", keywords: ["但是", "dànshì", "可是", "kěshì"] },
+          ],
+        },
+        {
+          id: "relatives-family-p2-q15",
+          kind: "written",
+          difficulty: "challenge",
+          guideRef: "family-celebrations-writing",
+          marks: 5,
+          question:
+            "Write a short IGCSE-style paragraph (around 80–100 Simplified characters, plus tone-marked Pinyin) about **your favourite relative** covering: (1) an exact paternal or maternal title, (2) where they live plus their profession (with polite measure word) or retirement status, (3) your close bond with a paired connective, (4) a completed past family gathering, and (5) a future visit plan.",
+          hints: [
+            "Open with 在所有亲戚中，我最喜欢我的… and pick an exact title like 外婆, 舅舅, 姑姑, or 堂姐.",
+            "Include 住在…, 一位… (or 退休了), 关系很好 + 虽然…但是… (or 不但…而且…).",
+            "Add a past sentence with 去年…了 and a future sentence with 今年/下个月…打算…看望.",
+          ],
+          modelAnswer:
+            "在所有亲戚中，我最喜欢我的外婆。她今年六十九岁，住在新加坡，以前是一位老师，现在已经退休了。虽然她年纪大了，但是很幽默，我们关系非常好，常常一起聊天儿。去年春节，我们全家去外婆家吃了团圆饭，还拍了一张全家福，非常热闹！下个周末我打算再去看望她。\nZài suǒyǒu qīnqi zhōng, wǒ zuì xǐhuan wǒ de wàipó. Tā jīnnián liùshíjiǔ suì, zhù zài Xīnjiāpō, yǐqián shì yí wèi lǎoshī, xiànzài yǐjīng tuìxiū le. Suīrán tā niánjì dà le, dànshì hěn yōumò, wǒmen guānxi fēicháng hǎo, chángcháng yìqǐ liáotiānr. Qùnián Chūnjié, wǒmen quánjiā qù wàipó jiā chī le tuányuánfàn, hái pāi le yì zhāng quánjiāfú, fēicháng rènao! Xià gè zhōumò wǒ dǎsuan zài qù kànwàng tā.",
+          markScheme: [
+            { point: "Uses an exact paternal/maternal relative title (e.g. 外婆/舅舅/姑姑/爷爷/堂姐/表哥)", keywords: ["外婆", "外公", "爷爷", "奶奶", "舅舅", "姑姑", "阿姨", "伯伯", "叔叔", "堂哥", "堂姐", "表哥", "表姐"] },
+            { point: "Gives residence (住在) and job with 位 or retirement (退休)", keywords: ["住在", "一位", "退休"] },
+            { point: "Includes a relationship phrase (关系/相处/聊天儿) and paired connective (虽然…但是 / 不但…而且 / 因为…所以)", keywords: ["但是", "而且", "所以", "关系", "聊天"] },
+            { point: "Describes a past gathering/visit with completed aspect 了", keywords: ["去年", "上个月", "吃了", "拍了", "去了", "看望了"] },
+            { point: "Includes a future plan using 打算 (or 希望) and 看望", keywords: ["打算", "dǎsuan", "看望", "kànwàng"] },
+          ],
+        },
+      ],
+    },
+  ],
+  challenge: [
+    {
+      id: "relatives-family-ch-q01",
+      kind: "short",
+      difficulty: "challenge",
+      guideRef: "paternal-maternal-grandparents",
+      question: "Logic puzzle: **我的爷爷有三个孩子：大儿子、二儿子和小女儿。我的爸爸是二儿子。** Besides your parents, list the Mandarin title of your father's **OLDER brother**.",
+      answer: { type: "text", accept: ["伯伯", "bóbo", "大伯", "dàbó"], display: "伯伯 (bóbo)" },
+      traps: [
+        { spec: { type: "text", accept: ["叔叔", "shūshu"] }, feedback: "Dad is the SECOND son (**二儿子**), so the first son (**大儿子**) is OLDER than Dad → **伯伯 (bóbo)**!" },
+      ],
+      hints: [
+        "爷爷 is father's father, so 大儿子, 二儿子, 小女儿 are your father and his siblings.",
+        "Since Dad is 二儿子 (second son), 大儿子 (first son) is older than Dad.",
+      ],
+      solution: [
+        "1. **大儿子** is older than **二儿子** (Dad).",
+        "2. Father's older brother = **伯伯 (bóbo)** (or **大伯**).",
+      ],
+    },
+    {
+      id: "relatives-family-ch-q02",
+      kind: "short",
+      difficulty: "challenge",
+      guideRef: "cousins-family-tree",
+      question: "Family-tree deduction: **我是陈小宇（十四岁）。陈明是我的爸爸，陈亮是陈明的哥哥，陈雪是陈明的妹妹。陈亮有一个女儿叫陈琳（十二岁），陈雪有一个儿子叫李浩（十六岁）。** What does 陈小宇 call **李浩**?",
+      answer: { type: "text", accept: ["表哥", "biǎogē"], display: "表哥 (biǎogē)" },
+      traps: [
+        { spec: { type: "text", accept: ["堂哥", "tánggē"] }, feedback: "Check whose son 李浩 is! He is the son of **陈雪** (father's sister = **姑姑**) and has surname **李**, not **陈** → **表哥 (biǎogē)**!" },
+      ],
+      hints: [
+        "Trace 李浩's mother: 陈雪 is 陈明's (Dad's) younger sister → 陈雪 is 姑姑!",
+        "Notice his surname is 李 (different from 陈) → 表, and 16 > 14 (male, older) → 哥.",
+      ],
+      solution: [
+        "1. 陈雪 is father's sister (**姑姑**), so her children take **表 (biǎo)**.",
+        "2. 李浩 is male and 16 > 14 → **表哥 (biǎogē)**.",
+      ],
+    },
+    {
+      id: "relatives-family-ch-q03",
+      kind: "short",
+      difficulty: "challenge",
+      guideRef: "cousins-family-tree",
+      question: "Using the same surname logic: **张伟** (14) has a paternal aunt (**姑姑**) whose husband is surnamed **王**, and a paternal younger uncle (**叔叔**) surnamed **张**. What does 张伟 call his **叔叔**'s 14-year-old-plus-6-months older daughter?",
+      answer: { type: "text", accept: ["堂姐", "tángjiě"], display: "堂姐 (tángjiě)" },
+      traps: [
+        { spec: { type: "text", accept: ["表姐", "biǎojiě"] }, feedback: "She is **叔叔**'s daughter (father's brother, same surname **张**), so she is **堂姐 (tángjiě)**!" },
+        { spec: { type: "text", accept: ["堂妹", "tángmèi"] }, feedback: "Even 6 months older than you still counts as older (**姐**)!" },
+      ],
+      hints: [
+        "She is the child of 叔叔 (father's younger brother) → same surname 张 → 堂.",
+        "Even though 叔叔 is younger than Dad, his daughter is 6 months OLDER than 张伟 → 姐!",
+      ],
+      solution: [
+        "1. Child of father's brother (**叔叔**) → **堂 (táng)**.",
+        "2. Female and older than 张伟 (even by 6 months) → **姐 (jiě)** → **堂姐 (tángjiě)**.",
+      ],
+    },
+    {
+      id: "relatives-family-ch-q04",
+      kind: "mcq",
+      difficulty: "challenge",
+      guideRef: "cousins-family-tree",
+      question: "Read carefully: **我的堂弟十二岁，我的表妹十一岁，我的表哥十五岁，我的堂姐十三岁。** Which exact age MUST the speaker (**我**) be (assuming distinct whole-number ages with no same-age ties)?",
+      options: [
+        "Twelve years old (十二岁)",
+        "Thirteen years old (十三岁)",
+        "Fourteen years old (十四岁)",
+        "Impossible — the ages contradict",
+      ],
+      answerIndex: 3,
+      hints: [
+        "From 堂弟 (12) being YOUNGER than the speaker, the speaker must be strictly older than 12 (≥ 13).",
+        "From 堂姐 (13) being OLDER than the speaker, the speaker must be strictly younger than 13 (≤ 12)!",
+      ],
+      explanation: "A **堂弟** (12) must be younger than you (so you > 12), while a **堂姐** (13) must be older than you (so you < 13). In whole years, no age is both > 12 and < 13, so it is **Impossible — the ages contradict**!",
+    },
+    {
+      id: "relatives-family-ch-q05",
+      kind: "short",
+      difficulty: "challenge",
+      guideRef: "paternal-maternal-grandparents",
+      question: "Reverse perspective! **小美** calls **林先生** her **舅舅 (jiùjiu)**, and **林先生** is 5 years OLDER than **小美's mother**. What does **小美's mother** call **林先生** in Mandarin?",
+      answer: { type: "text", accept: ["哥哥", "gēge"], display: "哥哥 (gēge)" },
+      traps: [
+        { spec: { type: "text", accept: ["伯伯", "bóbo"] }, feedback: "Think from **小美's mother**'s perspective, not 小美's! Her own older brother is her **哥哥 (gēge)**." },
+      ],
+      hints: [
+        "小美 calls 林先生 舅舅 → so 林先生 is 小美's mother's brother.",
+        "He is 5 years older than 小美's mother, so what does she call her older brother?",
+      ],
+      solution: [
+        "1. **舅舅** = mother's brother.",
+        "2. Since 林先生 is older than 小美's mother, she calls him **哥哥 (gēge)**.",
+      ],
+    },
+    {
+      id: "relatives-family-ch-q06",
+      kind: "short",
+      difficulty: "challenge",
+      guideRef: "visiting-relatives",
+      question: "Unscramble into a natural, grammatical Mandarin sentence (write Simplified Hanzi): **外婆 / 坐高铁 / 去年国庆节 / 去杭州 / 看望了 / 我们全家**",
+      answer: {
+        type: "text",
+        accept: [
+          "去年国庆节我们全家坐高铁去杭州看望了外婆",
+          "我们全家去年国庆节坐高铁去杭州看望了外婆",
+          "qùnián Guóqìngjié wǒmen quánjiā zuò gāotiě qù Hángzhōu kànwàng le wàipó",
+          "wǒmen quánjiā qùnián Guóqìngjié zuò gāotiě qù Hángzhōu kànwàng le wàipó",
+        ],
+        display: "去年国庆节我们全家坐高铁去杭州看望了外婆",
+      },
+      hints: [
+        "Start with Time (去年国庆节) + Subject (我们全家) — or Subject + Time.",
+        "Then follow chronological action order: Transport (坐高铁) → Go + Place (去杭州) → Purpose (看望了外婆).",
+      ],
+      solution: [
+        "1. Time + Subject: **去年国庆节，我们全家** (or **我们全家去年国庆节**).",
+        "2. Transport → Destination → Purpose: **坐高铁去杭州看望了外婆**.",
+      ],
+    },
+    {
+      id: "relatives-family-ch-q07",
+      kind: "mcq",
+      difficulty: "challenge",
+      guideRef: "family-celebrations-writing",
+      question: "Read the mini-dialogue:\n**A: 你家过年热闹吗？**\n**B: 特别热闹！我们家三代同堂，除夕夜姑姑一家和叔叔一家都会过来，一边包饺子一边看春晚。**\nWhich detail is **NOT** supported by B's reply?",
+      options: [
+        "Three generations live together under one roof",
+        "Father's sister's family comes on New Year's Eve",
+        "Father's younger brother's family joins the night",
+        "Mother's brother's family flies in from overseas",
+      ],
+      answerIndex: 3,
+      hints: [
+        "Check 三代同堂 (three generations under one roof) and 除夕夜 (Chinese New Year's Eve).",
+        "Look closely at which relatives are named: 姑姑一家 and 叔叔一家 — is 舅舅 mentioned?",
+      ],
+      explanation: "B mentions **三代同堂** (three generations together), **姑姑一家** (father's sister's family), and **叔叔一家** (father's younger brother's family). **Mother's brother's family** (**舅舅一家**) is never mentioned.",
+    },
+    {
+      id: "relatives-family-ch-q08",
+      kind: "written",
+      difficulty: "challenge",
+      guideRef: "family-celebrations-writing",
+      marks: 5,
+      question:
+        "IGCSE Stretch Writing: Write 4–5 connected Simplified Chinese sentences (with tone-marked Pinyin) comparing TWO relatives from different generations (for example, a grandparent and a cousin). Include: (1) two distinct exact titles, (2) where each lives or who they live with, (3) a paired 'although..., yet...' contrast, (4) a simultaneous 'doing two things at once' activity, and (5) why your family gets along well and supports each other.",
+      hints: [
+        "Choose e.g. 爷爷 (paternal grandpa) and 表姐 (older female cousin).",
+        "Use 住在一起 or 住在新加坡/伦敦, then contrast their ages or routines with 虽然…但是….",
+        "Add 一边喝茶一边聊天儿 (or 一边吃饺子一边看电视) and 关系非常好 / 互相帮助.",
+      ],
+      modelAnswer:
+        "我的爷爷七十六岁，和我们住在一起；我的表姐十八岁，住在伦敦上大学。虽然爷爷年纪大了，但是他每天都看新闻、学新东西；表姐不但学习很认真，而且很喜欢运动。每年暑假表姐回新加坡时，我们三个人常常一边喝茶一边聊天儿。我们一家人关系非常好，总是互相照顾、互相帮助。\nWǒ de yéye qīshíliù suì, hé wǒmen zhù zài yìqǐ; wǒ de biǎojiě shíbā suì, zhù zài Lúndūn shàng dàxué. Suīrán yéye niánjì dà le, dànshì tā měitiān dōu kàn xīnwén, xué xīn dōngxi; biǎojiě búdàn xuéxí hěn rènzhēn, érqiě hěn xǐhuan yùndòng. Měinián shǔjià biǎojiě huí Xīnjiāpō shí, wǒmen sān gè rén chángcháng yìbiān hē chá yìbiān liáotiānr. Wǒmen yìjiārén guānxi fēicháng hǎo, zǒngshì hùxiāng zhàogù, hùxiāng bāngzhù.",
+      markScheme: [
+        { point: "Names two distinct exact relative titles (e.g. 爷爷 + 表姐)", keywords: ["爷爷", "奶奶", "外公", "外婆", "表姐", "表哥", "堂哥", "堂姐", "堂弟", "表弟", "舅舅", "姑姑"] },
+        { point: "States residences accurately with 住在 or 住在一起", keywords: ["住在一起", "住在伦敦", "住在新加坡", "住在香港", "住在北京", "住在上海"] },
+        { point: "Uses paired contrast 虽然…但是… accurately", keywords: ["虽然", "但是", "suīrán", "dànshì"] },
+        { point: "Uses simultaneous action pattern 一边…一边…", keywords: ["一边", "yìbiān"] },
+        { point: "Expresses warm family bond with 关系很好 or 互相帮助/照顾", keywords: ["关系非常好", "关系很好", "互相帮助", "互相照顾", "guānxi"] },
+      ],
+    },
+  ],
+};
